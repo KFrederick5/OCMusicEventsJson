@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="OCMusicEvent" parent="Theme.AppCompat" >
+        <item name="colorPrimary">@color/primary_material_dark_1</item>
+        <item name="colorPrimaryDark">@color/primary_material_dark_mo7</item>
+    </style>
+
+</resources>
