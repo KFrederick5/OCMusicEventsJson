@@ -15,6 +15,10 @@ import java.io.InputStream;
 
 public class EventDetailsActivity extends AppCompatActivity {
 
+    /**
+     * Created three private view variables to relate to the coinciding
+     * xml view
+     */
     private ImageView eventImageView;
     private TextView eventTitleTextView;
     private TextView eventDateDayTextView;
@@ -26,11 +30,20 @@ public class EventDetailsActivity extends AppCompatActivity {
     //In order to use AssetManager, need to know context
     private Context context = (Context) this;
 
+    /**
+     * Creates a view after one of the list items have been clicked and
+     * displays the details of the item selected.
+     * @param savedInstanceState calls for any recent saved information.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details_layout);
 
+        /**
+         * Received the intent from the EventListActivity and assigned them
+         * to string variable values
+         */
         Intent detailsIntent = getIntent();
         String title = detailsIntent.getStringExtra("Title");
         String date = detailsIntent.getStringExtra("Date");
@@ -40,6 +53,10 @@ public class EventDetailsActivity extends AppCompatActivity {
         String address1 = detailsIntent.getStringExtra("Address1");
         String address2 = detailsIntent.getStringExtra("Address2");
         String imageFileName = title.replace(" ","") + ".jpeg";
+
+        /**
+         * Hooked this controllers variables to the xml views.
+         */
         eventImageView = (ImageView) findViewById(R.id.eventImageView);
         eventTitleTextView = (TextView) findViewById(R.id.eventTitleTextView);
         eventDateDayTextView = (TextView) findViewById(R.id.eventDateDayTextView);

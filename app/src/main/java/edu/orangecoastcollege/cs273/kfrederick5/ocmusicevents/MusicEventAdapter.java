@@ -19,25 +19,27 @@ import java.util.List;
 
 /**
  * Custom adapter to bind an ArrayList of MusicEvents to a custom layout.
- *
  */
-
 public class MusicEventAdapter extends ArrayAdapter<MusicEvent> {
     private Context mContext;
     private int mResourceId;
     private List<MusicEvent> mAllMusicEvents;
 
+    /**
+     * Used to link the view with the controller to pass text to the view.
+     */
     private ImageView listItemImageView;
     private TextView listItemTitleTextView;
     private TextView listItemDateTextView;
 
     /**
-     * Parameterized constructor for this custom adapter.
+     * Parametrized constructor for this custom adapter.
      * @param context The context from which the MusicEventAdapter was created.
      * @param resourceId The layout resource id (e.g. R.layout.music_event_list_item)
      * @param allMusicEvents The ArrayList containing all MusicEvent objects.
      */
-    public MusicEventAdapter(Context context, int resourceId, ArrayList<MusicEvent> allMusicEvents)
+    public MusicEventAdapter(Context context, int resourceId,
+                             ArrayList<MusicEvent> allMusicEvents)
     {
         super(context, resourceId, allMusicEvents);
         this.mResourceId = resourceId;
@@ -55,7 +57,8 @@ public class MusicEventAdapter extends ArrayAdapter<MusicEvent> {
     public View getView(int pos, View convertView, ViewGroup parent)
     {
         MusicEvent musicEvent = mAllMusicEvents.get(pos);
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(
+                Activity.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(mResourceId, null);
 
         listItemImageView = (ImageView) view.findViewById(R.id.listItemImageView);
